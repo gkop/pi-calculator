@@ -1,14 +1,19 @@
 class PiCalculator
 
   def calculate
+    circle_area = find_area_of_unit_circle
+    pi = 4 * circle_area
+  end
+
+  private
+  def find_area_of_unit_circle
     # calculate pi in terms of the area of a unit square and the circle
     # inscribed within
-    square_area = 1
     # circle radius is 0.5
     # circle diameter is 1.0
 
     points_in_circle = 0
-    num_points = 10000000
+    num_points = 1000000
     origin = {:x => 0.5, :y => 0.5}
 
     num_points.times do
@@ -27,7 +32,6 @@ class PiCalculator
       end
     end
     circle_area = points_in_circle.to_f / num_points
-    pi = 4 * (circle_area / square_area)
+    circle_area
   end
-
 end
